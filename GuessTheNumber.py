@@ -1,28 +1,31 @@
-# template for "Guess the number" mini-project
+# 'Guess the number' game.
+#################################################################
+### Instructions for running the game
+### Go to codeskulptor.org, copy paste the code, and run it.
+### Some modules used in the program, only function with codeskulptor.org
+#################################################################
+
 # input will come from buttons and an input field
 # all output for the game will be printed in the console
 
+#importing required modules
 import simplegui
 import random
 
-
-# initialize global variables used in your code
-#default num range
+# initialize global variables
+# default num range
 num_range = 100
-#default left guesses for default num range of 100
+#default left guesses for num range of 100
 left_guesses = 7
-#global variable that increments on each guess, and helps reset left_guesses
+# global variable that increments on each guess and helps reset left_guesses
 counter = 0
-#secret_number is generated for default game play
+# secret_number is generated for default game play
 secret_number = random.randrange(0, num_range)
 
-
-
-# helper function to start and restart the game
+# function to start and restart the game
 def new_game():
     print "New Game. Range is from 0 to ", num_range
     print "Number of remaining guesses is ", left_guesses
-
 
 # define event handlers for control panel
 def range100():
@@ -89,21 +92,15 @@ def input_guess(guess):
         print "" 
         new_game()
         counter = 0
-      
-    
+        
 # create frame
 frame = simplegui.create_frame("Guess the Number", 200, 200)
 
-# register event handlers for control elements
+# registering event handlers for control elements
 frame.add_button("Range: 0 - 100", range100, 200)
 frame.add_button("Range: 0 - 1000", range1000, 200)
 frame.add_input("Player Guess", input_guess, 75)
 
-
 # call new_game and start frame
 new_game()
-
 frame.start()
-
-
-# always remember to check your completed program against the grading rubric
