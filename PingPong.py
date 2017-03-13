@@ -1,6 +1,10 @@
 # Implementation of classic arcade game Pong
+##################################################################################
 # Works only when opened or copy pasted in http://www.codeskulptor.org
+# The 'simplegui' module used in this code works only in codeskulptor.org
+##################################################################################
 
+#import necessary modules
 import simplegui
 import random
 
@@ -28,8 +32,8 @@ def spawn_ball(direction):
     ball_pos = [WIDTH / 2, HEIGHT / 2]
     ball_vel = [3, -1]
  
-    if direction == False:
-        ball_vel[0] = -ball_vel[0]
+if direction == False:
+    ball_vel[0] = -ball_vel[0]
         
 # define event handlers
 def new_game():
@@ -39,7 +43,6 @@ def new_game():
     score2 = 0
     spawn_ball(RIGHT)
   
-
 def draw(canvas):
     global score1, score2, paddle1_pos, paddle2_pos, ball_pos, ball_vel
        
@@ -47,7 +50,7 @@ def draw(canvas):
     canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 1, "White")
     canvas.draw_line([PAD_WIDTH, 0],[PAD_WIDTH, HEIGHT], 1, "White")
     canvas.draw_line([WIDTH - PAD_WIDTH, 0],[WIDTH - PAD_WIDTH, HEIGHT], 1, "White")
-        
+
     # update ball
     ball_pos[0] += ball_vel[0]
     ball_pos[1] += ball_vel[1]
@@ -119,8 +122,6 @@ frame.set_draw_handler(draw)
 frame.add_button('Restart', new_game, 100)
 frame.set_keydown_handler(keydown)
 frame.set_keyup_handler(keyup)
-
-
 
 # start frame
 new_game()
