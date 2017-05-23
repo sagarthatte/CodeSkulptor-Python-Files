@@ -32,8 +32,8 @@ def spawn_ball(direction):
     ball_pos = [WIDTH / 2, HEIGHT / 2]
     ball_vel = [3, -1]
  
-if direction == False:
-    ball_vel[0] = -ball_vel[0]
+    if direction == False:
+        ball_vel[0] = -ball_vel[0]
         
 # define event handlers
 def new_game():
